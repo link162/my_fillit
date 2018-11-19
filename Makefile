@@ -6,18 +6,18 @@
 #    By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 15:05:10 by ybuhai            #+#    #+#              #
-#    Updated: 2018/11/19 13:47:42 by ybuhai           ###   ########.fr        #
+#    Updated: 2018/11/19 14:44:44 by iruban           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 FLAGS = -Wall -Wextra -Werror
-FILES = main.c list_functions.c lisr_functions1.c
-OBJECT = $(FILES:.c=.o)
+FILES = main.c list_functions.c list_functions1.c
+OBJECT = $(FILES:%.c=%.o)
 
 $(NAME) :
 	make -C libft/ fclean && make -C libft/
-	gcc $(FLAGS) -I libft/ -o $(OBJECT) -c $(FILES)
+	gcc -c $(FLAGS) $(FILES) -I includes
 	gcc -o $(NAME) $(OBJECT) -I libft -L libft/ -lft
 
 all: $(NAME)

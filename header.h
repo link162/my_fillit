@@ -6,11 +6,12 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 14:19:07 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/19 13:21:00 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/19 14:46:17 by iruban           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft/includes/libft.h"
+#include <fcntl.h>
 
 typedef struct		s_tetris
 {
