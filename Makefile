@@ -6,13 +6,13 @@
 #    By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 15:05:10 by ybuhai            #+#    #+#              #
-#    Updated: 2018/11/17 15:30:02 by ybuhai           ###   ########.fr        #
+#    Updated: 2018/11/19 13:47:42 by ybuhai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 FLAGS = -Wall -Wextra -Werror
-FILES = main.c
+FILES = main.c list_functions.c lisr_functions1.c
 OBJECT = $(FILES:.c=.o)
 
 $(NAME) :
