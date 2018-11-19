@@ -19,7 +19,7 @@ typedef struct		s_tetris
 	void			*data;
 }					t_tetris;
 
-void				t_tetris	*ft_create_elem(void *data);
+t_tetris			*ft_create_elem(void *data);
 void				ft_list_push_back(t_tetris **begin_list, void *data);
 void				ft_list_push_front(t_tetris **begin_list, void *data);
 t_tetris			*ft_list_last(t_tetris *begin_list);

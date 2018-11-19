@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-void	t_tetris	*ft_create_elem(void *data)
+t_tetris	*ft_create_elem(void *data)
 {
 	t_tetris	*list;
 
