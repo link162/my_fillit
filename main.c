@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 12:48:39 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/19 23:25:41 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/21 15:56:59 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,21 @@ int		validate_box(char *str, int i)
 	return (x);
 }
 
-void	find_figure(char *str, int count)
+void	find_figure(char *str)
 {
-	int i;
 	int nb;
-	int arr[count];
+	int i;
+	int arr[g_count];
 
-	nb = 0;
 	i = 0;
-	while (nb < count)
+	nb = 0;
+	while (nb < g_count)
 	{
 		arr[nb++] = figure_1(&str[i]);
 		i += 21;
 	}
-	i = 0;
-	while (i < count)
-	{
-		ft_putnbr(arr[i]);
-		ft_putchar('\n');
-		i++;
-	}
+	g_arr = arr;
+	create_data_baze();
 }
 void	ft_validate(char *str)
 {
@@ -86,7 +81,8 @@ void	ft_validate(char *str)
 		else if (str[i] == '\n')
 			i++;
 	}
-	find_figure(str, count);
+	g_count = count;
+	find_figure(str);
 }
 
 void	ft_read_file(int fd)
