@@ -6,7 +6,7 @@
 /*   By: iruban <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 15:31:39 by iruban            #+#    #+#             */
-/*   Updated: 2018/11/02 16:24:08 by iruban           ###   ########.fr       */
+/*   Updated: 2018/11/22 11:29:57 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-int             get_next_line(const int fd, char **line);
+int				get_next_line(const int fd, char **line);
 int				ft_sqrt(int nb);
 int				ft_pow(int a, int b);
 void			ft_is_negative(int n);

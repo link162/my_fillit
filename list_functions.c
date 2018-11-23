@@ -6,41 +6,43 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 12:40:18 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/19 18:48:31 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/23 17:50:09 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_tetris	*ft_create_elem(void *data)
+t_tetris	*ft_create_elem(int figure, int number)
 {
-	t_tetris	*list;
+	t_tetris	*lst;
 
-	list = NULL;
-	list = malloc(sizeof(t_list));
-	if (list)
+	lst = NULL;
+	lst = malloc(sizeof(t_list));
+	if (lst)
 	{
-		list->data = data;
-		list->next = NULL;
+		lst->figure = figure;
+		lst->number = number;
+		lst->is_put = 0;
+		lst->next = NULL;
 	}
-	return (list);
+	return (lst);
 }
 
-void	ft_list_push_back(t_tetris **begin_list, void *data)
+void		ft_list_push_back(t_tetris **begin_list, int figure, int number)
 {
-	t_tetris	*list;
+	t_tetris	*lst;
 
-	list = *begin_list;
-	if (list)
+	lst = *begin_list;
+	if (lst)
 	{
-		while (list->next)
-			list = list->next;
-		list->next = ft_create_elem(data);
+		while (lst->next)
+			lst = lst->next;
+		lst->next = ft_create_elem(figure, number);
 	}
 	else
-		*begin_list = ft_create_elem(data);
+		*begin_list = ft_create_elem(figure, number);
 }
-
+/*
 void	ft_list_push_front(t_tetris **begin_list, void *data)
 {
 	t_tetris	*list;
@@ -69,17 +71,15 @@ int		ft_list_size(t_tetris *begin_list)
 	}
 	return (i);
 }
-
-t_tetris	*ft_list_last(t_tetris *begin_list)
+*/
+void	list_to_null(void)
 {
-	t_tetris	*list;
+	t_tetris *new;
 
-	list = begin_list;
-	if (list)
+	new = g_list;
+	while (new)
 	{
-		while (list->next)
-			list = list->next;
-		return (list);
+		new->is_put = 0;
+		new = new->next;
 	}
-	return (NULL);
 }

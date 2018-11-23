@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 12:48:39 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/21 15:56:59 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/22 11:31:53 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,18 @@ void	find_figure(char *str)
 {
 	int nb;
 	int i;
-	int arr[g_count];
 
 	i = 0;
 	nb = 0;
 	while (nb < g_count)
 	{
-		arr[nb++] = figure_1(&str[i]);
+		ft_list_push_back(&g_list, figure_1(&str[i]), nb);
 		i += 21;
+		nb++;
 	}
-	g_arr = arr;
 	create_data_baze();
 }
+
 void	ft_validate(char *str)
 {
 	int i;
