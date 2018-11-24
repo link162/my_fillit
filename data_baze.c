@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:16:48 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/23 18:47:45 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/24 17:02:54 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ int		fill_tetris(char field[][g_field_size], int y, int x)
 	if (x >= g_field_size)
 		return (fill_tetris(field, y + 1, 0));
 	if (field[y][x] == '.')
-		if (avalible(field, y, x, list->figure))
+		if (avalible(field, y, x, list))
 			list->is_put = 1;
+//add_to_global(list);
 	if (y == g_field_size - 1 && x == g_field_size - 1) 
 		return (1);
+		//	return (step_back(field, y, x, list);
 	return (fill_tetris(field, y, x + 1));
 }
 
@@ -49,7 +51,6 @@ int		backtracking(void)
 
 	i = 0;
 	char	field[g_field_size][g_field_size];
-	g_letter = 'A';
 	while (i < g_field_size)
 	{
 		j = 0;
