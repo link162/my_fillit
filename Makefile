@@ -6,7 +6,7 @@
 #    By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 15:05:10 by ybuhai            #+#    #+#              #
-#    Updated: 2018/11/23 18:36:07 by ybuhai           ###   ########.fr        #
+#    Updated: 2018/11/26 13:25:52 by ybuhai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ OBJECT = $(FILES:%.c=%.o)
 
 $(NAME) :
 	make -C libft/ fclean && make -C libft/
-	gcc -g -c $(FLAGS) $(FILES) -I includes
-	gcc -g -o $(NAME) $(OBJECT) -I libft -L libft/ -lft
+	clang -g3 -O0 -c $(FLAGS) $(FILES) -I includes
+	clang -g3 -O0 -o $(NAME) $(OBJECT) -I libft -L libft/ -lft
 
 all: $(NAME)
 
