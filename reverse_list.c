@@ -6,11 +6,24 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 15:44:13 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/27 11:52:47 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/27 13:05:21 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+void	del_revers(void)
+{
+	t_tetris *new;
+
+	while (g_reverse)
+	{
+		new = g_reverse->next;
+		free(g_reverse);
+		g_reverse = NULL;
+		g_reverse = new;
+	}
+}
 
 void	del_letter(int number, char field[][g_field_size])
 {
