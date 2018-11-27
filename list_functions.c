@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 12:40:18 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/26 15:38:10 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/27 13:22:55 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_tetris	*ft_create_elem(int figure, int number)
 	t_tetris	*lst;
 
 	lst = NULL;
-	lst = malloc(sizeof(t_list));
+	lst = malloc(sizeof(t_tetris));
 	if (lst)
 	{
 		lst->figure = figure;

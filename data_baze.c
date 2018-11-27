@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:16:48 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/27 11:51:32 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/27 13:21:28 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		backtracking(void)
 
 	i = 0;
 	g_to_put = -1;
+	del_revers();
 	char	field[g_field_size][g_field_size];
 	while (i < g_field_size)
 	{
