@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:16:48 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/26 13:29:58 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/27 11:51:32 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@ t_tetris	*what_now()
 	t_tetris *new;
 
 	new = g_list;
+	if (g_to_put >= 0)
+	{
+		while (new)
+		{
+			if (new->number == g_to_put)
+			{
+				g_to_put = -1;
+				return (new);
+			}
+			new = new->next;
+		}
+	}
 	while (new)
 	{
 		if (new->is_put == 0)
@@ -36,11 +48,9 @@ int		fill_tetris(char field[][g_field_size], int y, int x)
 		return (fill_tetris(field, y + 1, 0));
 	if (field[y][x] == '.')
 		if (avalible(field, y, x, list))
-			list->is_put = 1;
-//add_to_global(list);
+			add_to_global(list);
 	if (y == g_field_size - 1 && x == g_field_size - 1) 
-		return (1);
-		//	return (step_back(field, y, x, list);
+		return (step_back(field, list));//нужно проверить, все-ли фигуры поставлены
 	return (fill_tetris(field, y, x + 1));
 }
 
@@ -50,6 +60,7 @@ int		backtracking(void)
 	int j;
 
 	i = 0;
+	g_to_put = -1;
 	char	field[g_field_size][g_field_size];
 	while (i < g_field_size)
 	{

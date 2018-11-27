@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 14:19:07 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/24 17:06:45 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/27 11:53:17 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct		s_tetris
 
 t_tetris			*g_list;
 t_tetris			*g_reverse;
+int					g_to_put;
 int					g_count;
 int					g_field_size;
 t_tetris			*ft_create_elem(int figure, int number);
@@ -35,6 +36,10 @@ int					ft_list_size(t_tetris *begin_list);
 int					figure_1(char *str);
 void				list_to_null(void);
 void				create_data_baze(void);
+void				add_to_global(t_tetris *list);
+int					step_back(char field[][g_field_size], t_tetris *list);
+int					fill_tetris(char field[][g_field_size], int y, int x);
+int					clear_f(char field[][g_field_size], t_tetris *to_del, int to_put);
 int					avalible(char field[][g_field_size], int y, int x, t_tetris *l);
 int					try_figure_1(char field[][g_field_size], int y, int x, int number);
 int					try_figure_2(char field[][g_field_size], int y, int x, int number);
