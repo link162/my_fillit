@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 12:40:18 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/27 13:22:55 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/27 13:42:49 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,20 @@ void		ft_list_push_back(t_tetris **begin_list, int figure, int number)
 		*begin_list = ft_create_elem(figure, number);
 }
 
-void	ft_list_push_front(t_tetris **begin_list, int figure, int number)
+void	ft_list_push_front(int figure, int number)
 {
 	t_tetris	*list;
 
-	if (*begin_list)
+	if (g_reverse)
 	{
 		list = ft_create_elem(figure, number);
-		list->next = *begin_list;
-		*begin_list = list;
+		list->next = g_reverse;
+		g_reverse = list;
 	}
 	else
-		*begin_list = ft_create_elem(figure, number);
+		g_reverse = ft_create_elem(figure, number);
 }
-/*
-int		ft_list_size(t_tetris *begin_list)
-{
-	t_tetris	*list;
-	int		i;
 
-	i = 0;
-	list = begin_list;
-	while (list)
-	{
-		i++;
-		list = list->next;
-	}
-	return (i);
-}
-*/
 void	list_to_null(void)
 {
 	t_tetris *new;

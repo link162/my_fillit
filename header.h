@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 14:19:07 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/27 13:02:04 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/27 13:40:51 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int					g_count;
 int					g_field_size;
 t_tetris			*ft_create_elem(int figure, int number);
 void				ft_list_push_back(t_tetris **b, int f, int number);
-void				ft_list_push_front(t_tetris **b, int f, int number);
+void				ft_list_push_front(int f, int number);
 t_tetris			*ft_list_last(t_tetris *begin_list);
 int					ft_list_size(t_tetris *begin_list);
 int					figure_1(char *str);

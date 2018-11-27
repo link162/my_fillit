@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 11:13:35 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/27 13:14:17 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/27 13:37:13 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	print_field(char field[][g_field_size])
 void	add_to_global(t_tetris *list)
 {
 	list->is_put = 1;
-	ft_list_push_front(&g_reverse, list->figure, list->number);
+	ft_list_push_front(list->figure, list->number);
 }
 
 int		step_back(char field[][g_field_size], t_tetris *list)
