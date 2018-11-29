@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 21:36:22 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/29 14:18:05 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/29 16:14:22 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		g_like_figure(char *str, int i)
 {
-	if (str[i + 5] == '#')
-		return (1);
-	else if (str[i - 1] == '#')
+	if (str[i - 1] == '#')
 		return (18);
+	else if (str[i + 5] == '#')
+		return (1);
 	return (0);
 }
 
@@ -27,12 +27,12 @@ int		two_long_hash(char *str, int i)
 	{
 		if (str[i + 2] == '#')
 			return (5);
-		else if (str[i + 6] == '#')
-			return (4);
 		else if (str[i + 4] == '#')
 			return (11);
 		else if (str[i + 5] == '#')
 			return (14);
+		else if (str[i + 6] == '#')
+			return (4);
 	}
 	else if (str[i + 5] == '#')
 	{
@@ -50,10 +50,10 @@ int		two_long_hash(char *str, int i)
 
 int		l_like_figure(char *str, int i)
 {
-	if (str[i + 5] == '#')
-		return (17);
-	else if (str[i - 1] == '#')
+	if (str[i - 1] == '#')
 		return (9);
+	else if (str[i + 5] == '#')
+		return (17);
 	return (0);
 }
 
@@ -61,25 +61,25 @@ int		two_vertical_hash(char *str, int i)
 {
 	if (str[i + 1] == '#')
 	{
-		if (str[i + 2] == '#')
+		if (str[i - 1] == '#')
+			return (12);
+		else if (str[i + 2] == '#')
 			return (2);
-		else if (str[i + 6] == '#')
-			return (19);
 		else if (str[i + 5] == '#')
 			return (13);
-		else if (str[i - 1] == '#')
-			return (12);
+		else if (str[i + 6] == '#')
+			return (19);
 	}
 	else if (str[i + 5] == '#')
 	{
-		if (str[i + 4] == '#')
-			return (3);
-		else if (str[i + 10] == '#')
-			return (6);
-		else if (str[i - 1] == '#')
+		if (str[i - 1] == '#')
 			return (15);
+		else if (str[i + 4] == '#')
+			return (3);
 		else if (str[i + 6] == '#')
 			return (10);
+		else if (str[i + 10] == '#')
+			return (6);
 	}
 	else if (str[i - 1] == '#')
 		return (l_like_figure(str, i - 1));

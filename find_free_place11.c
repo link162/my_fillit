@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:03:34 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/24 17:04:08 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/29 17:06:08 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		try_figure_13(char field[][g_field_size], int y, int x, int number)
 				if (x + 1 < g_field_size)
 					if (field[y + 1][x + 1] == '.')
 					{
-						field[x][y] = number + 65;
+						field[y][x] = number + 65;
 						field[y + 1][x] = number + 65;
 						field[y + 2][x] = number + 65;
 						field[y + 1][x + 1] = number + 65;

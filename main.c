@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 12:48:39 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/29 14:15:31 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/29 16:38:51 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	ft_validate(char *str)
 		j = validate_box(&str[i], 0);
 		if (j == -1)
 		{
-			ft_putendl("error file");
+			ft_putendl("error");
 			return ;
 		}
 		i += j;
