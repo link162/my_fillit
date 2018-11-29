@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 21:36:22 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/26 14:03:58 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/29 14:18:05 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ int		two_long_hash(char *str, int i)
 	{
 		if (str[i + 6] == '#')
 			return (16);
-		else if (str[i + 10] == '#')
-			return (8);
 		else if (str[i + 4] == '#')
 			return (7);
+		else if (str[i + 10] == '#')
+			return (8);
 	}
 	else if (str[i + 4] == '#')
 		return (g_like_figure(str, i + 4));

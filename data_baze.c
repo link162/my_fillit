@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:16:48 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/27 13:34:54 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/11/29 14:07:13 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ t_tetris	*what_now()
 		while (new)
 		{
 			if (new->number == g_to_put)
-			{
-				g_to_put = -1;
 				return (new);
-			}
 			new = new->next;
 		}
 	}
