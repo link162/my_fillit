@@ -6,7 +6,7 @@
 #    By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 15:05:10 by ybuhai            #+#    #+#              #
-#    Updated: 2018/11/27 13:34:42 by ybuhai           ###   ########.fr        #
+#    Updated: 2018/11/30 13:18:38 by iruban           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ all: $(NAME)
 
 clean:
 	rm -rf $(OBJECT)
+		make clean -C libft/
 
 fclean: clean
 	rm -rf $(NAME)
+		make fclean -C libft
 
 re : fclean all

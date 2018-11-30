@@ -40,27 +40,48 @@ void				del_revers(void);
 void				add_to_global(t_tetris *list);
 int					step_back(char field[][g_field_size], t_tetris *list);
 int					fill_tetris(char field[][g_field_size], int y, int x);
-int					clear_f(char field[][g_field_size], t_tetris *to_del, int to_put);
-int					avalible(char field[][g_field_size], int y, int x, t_tetris *l);
-int					try_figure_1(char field[][g_field_size], int y, int x, int number);
-int					try_figure_2(char field[][g_field_size], int y, int x, int number);
-int					try_figure_3(char field[][g_field_size], int y, int x, int number);
-int					try_figure_4(char field[][g_field_size], int y, int x, int number);
-int					try_figure_5(char field[][g_field_size], int y, int x, int number);
-int					try_figure_6(char field[][g_field_size], int y, int x, int number);
-int					try_figure_7(char field[][g_field_size], int y, int x, int number);
-int					try_figure_8(char field[][g_field_size], int y, int x, int number);
-int					try_figure_9(char field[][g_field_size], int y, int x, int number);
-int					try_figure_10(char field[][g_field_size], int y, int x, int number);
-int					try_figure_11(char field[][g_field_size], int y, int x, int number);
-int					try_figure_12(char field[][g_field_size], int y, int x, int number);
-int					try_figure_13(char field[][g_field_size], int y, int x, int number);
-int					try_figure_14(char field[][g_field_size], int y, int x, int number);
-int					try_figure_15(char field[][g_field_size], int y, int x, int number);
-int					try_figure_16(char field[][g_field_size], int y, int x, int number);
-int					try_figure_17(char field[][g_field_size], int y, int x, int number);
-int					try_figure_18(char field[][g_field_size], int y, int x, int number);
-int					try_figure_19(char field[][g_field_size], int y, int x, int number);
+int					clear_f(char field[][g_field_size],
+					t_tetris *to_del, int to_put);
+int					avalible(char field[][g_field_size],
+					int y, int x, t_tetris *l);
+int					try_figure_1(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_2(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_3(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_4(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_5(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_6(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_7(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_8(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_9(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_10(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_11(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_12(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_13(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_14(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_15(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_16(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_17(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_18(char field[][g_field_size],
+					int y, int x, int number);
+int					try_figure_19(char field[][g_field_size],
+					int y, int x, int number);
 void				print_field(char field[][g_field_size]);
 
 #endif

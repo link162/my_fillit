@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-t_tetris	*ft_create_elem(int figure, int number)
+t_tetris		*ft_create_elem(int figure, int number)
 {
 	t_tetris	*lst;
 
@@ -28,7 +28,7 @@ t_tetris	*ft_create_elem(int figure, int number)
 	return (lst);
 }
 
-void		ft_list_push_back(t_tetris **begin_list, int figure, int number)
+void			ft_list_push_back(t_tetris **begin_list, int figure, int number)
 {
 	t_tetris	*lst;
 
@@ -43,7 +43,7 @@ void		ft_list_push_back(t_tetris **begin_list, int figure, int number)
 		*begin_list = ft_create_elem(figure, number);
 }
 
-void	ft_list_push_front(int figure, int number)
+void			ft_list_push_front(int figure, int number)
 {
 	t_tetris	*list;
 
@@ -57,7 +57,7 @@ void	ft_list_push_front(int figure, int number)
 		g_reverse = ft_create_elem(figure, number);
 }
 
-void	list_to_null(void)
+void			list_to_null(void)
 {
 	t_tetris *new;
 

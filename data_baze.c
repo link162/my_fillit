@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-t_tetris	*what_now()
+t_tetris		*what_now(void)
 {
 	t_tetris *new;
 
@@ -35,7 +35,7 @@ t_tetris	*what_now()
 	return (NULL);
 }
 
-int		fill_tetris(char field[][g_field_size], int y, int x)
+int				fill_tetris(char field[][g_field_size], int y, int x)
 {
 	t_tetris *list;
 
@@ -49,20 +49,20 @@ int		fill_tetris(char field[][g_field_size], int y, int x)
 			add_to_global(list);
 			return (fill_tetris(field, 0, 0));
 		}
-	if (y == g_field_size - 1 && x == g_field_size - 1) 
-		return (step_back(field, list));//нужно проверить, все-ли фигуры поставлены
+	if (y == g_field_size - 1 && x == g_field_size - 1)
+		return (step_back(field, list));
 	return (fill_tetris(field, y, x + 1));
 }
 
-int		backtracking(void)
+int				backtracking(void)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
+	char	field[g_field_size][g_field_size];
 
 	i = 0;
 	g_to_put = -1;
 	del_revers();
-	char	field[g_field_size][g_field_size];
 	while (i < g_field_size)
 	{
 		j = 0;
@@ -76,19 +76,21 @@ int		backtracking(void)
 	return (i);
 }
 
-int		find_size(int i)
+int				find_size(int i)
 {
 	while (!ft_sqrt(i))
 		i++;
 	return (ft_sqrt(i));
 }
 
-void	create_data_baze(void)
+void			create_data_baze(void)
 {
 	int i;
+	int lol;
 
 	i = 1;
-	g_field_size = find_size(g_count * 4);
+	lol = g_count * 4;
+	g_field_size = find_size(lol);
 	while (i)
 	{
 		i = backtracking();

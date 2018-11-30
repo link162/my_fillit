@@ -27,9 +27,9 @@ void	del_revers(void)
 
 void	del_letter(int number, char field[][g_field_size])
 {
-	int i;
-	int j;
-	t_tetris *new;
+	int			i;
+	int			j;
+	t_tetris	*new;
 
 	new = g_list;
 	while (new)
@@ -41,18 +41,16 @@ void	del_letter(int number, char field[][g_field_size])
 		}
 		new = new->next;
 	}
-	i = 0;
+	i = -1;
 	number += 65;
-	while (i < g_field_size)
+	while (++i < g_field_size)
 	{
-		j = 0;
-		while (j < g_field_size)
+		j = -1;
+		while (++j < g_field_size)
 		{
 			if (field[i][j] == number)
 				field[i][j] = '.';
-			j++;
 		}
-		i++;
 	}
 }
 

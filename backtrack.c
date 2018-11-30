@@ -50,7 +50,7 @@ int		avalible(char field[][g_field_size], int y, int x, t_tetris *list)
 	else if (figure == 3)
 		return (try_figure_3(field, y, x, list->number));
 	else if (figure == 4)
-		return (try_figure_4(field, y, x, list->number));	
+		return (try_figure_4(field, y, x, list->number));
 	else if (figure == 5)
 		return (try_figure_5(field, y, x, list->number));
 	else if (figure == 6)
@@ -111,5 +111,5 @@ int		step_back(char field[][g_field_size], t_tetris *list)
 		}
 		done_list = done_list->next;
 	}
-		return (1); 
+	return (1);
 }
