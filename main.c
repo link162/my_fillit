@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 12:48:39 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/29 16:38:51 by ybuhai           ###   ########.fr       */
+/*   Created: 2018/12/03 16:38:10 by ybuhai            #+#    #+#             */
+/*   Updated: 2018/12/03 16:59:03 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,24 @@ int		validate_box(char *str, int i)
 
 void	find_figure(char *str)
 {
+	int arr[g_count];
 	int nb;
 	int i;
-	int fig;
 
 	i = 0;
 	nb = 0;
 	while (nb < g_count)
 	{
-		fig = figure_1(&str[i]);
-		if (fig < 1)
+		arr[nb] = figure_1(&str[i]);
+		if (arr[nb] < 1)
 		{
 			ft_putendl("error");
 			return ;
 		}
-		ft_list_push_back(&g_list, fig, nb);
 		i += 21;
 		nb++;
 	}
+	g_arr = arr;
 	create_data_baze();
 }
 
@@ -100,6 +100,7 @@ void	ft_read_file(int fd)
 	i = read(fd, str, 550);
 	str[i] = '\0';
 	ft_validate(str);
+	close(fd);
 }
 
 int		main(int argc, char **argv)

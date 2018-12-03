@@ -6,63 +6,68 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:16:48 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/29 16:30:43 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/12/03 16:46:00 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_tetris		*what_now(void)
+void	del_letter(int number, char field[][g_field_size])
 {
-	t_tetris *new;
+	int			i;
+	int			j;
 
-	new = g_list;
-	if (g_to_put >= 0)
+	number += 65;
+	i = 0;
+	while (i < g_field_size)
 	{
-		while (new)
+		j = 0;
+		while (j < g_field_size)
 		{
-			if (new->number == g_to_put)
-				return (new);
-			new = new->next;
+			if (field[i][j] == number)
+				field[i][j] = '.';
+			j++;
 		}
+		i++;
 	}
-	while (new)
-	{
-		if (new->is_put == 0)
-			return (new);
-		new = new->next;
-	}
-	return (NULL);
 }
 
-int				fill_tetris(char field[][g_field_size], int y, int x)
+int		fill_tetris(char field[][g_field_size], int nbr)
 {
-	t_tetris *list;
+	int y;
+	int x;
 
-	if (!(list = what_now()))
-		return (0);
-	if (x >= g_field_size)
-		return (fill_tetris(field, y + 1, 0));
-	if (field[y][x] == '.')
-		if (avalible(field, y, x, list))
+	y = 0;
+	while (y < g_field_size)
+	{
+		x = 0;
+		while (x < g_field_size)
 		{
-			add_to_global(list);
-			return (fill_tetris(field, 0, 0));
+			if (field[y][x] == '.')
+				if (avalible(field, y, x, nbr))
+				{
+					if (nbr + 1 < g_count)
+						if (!(fill_tetris(field, nbr + 1)))
+							return (0);
+						else
+							del_letter(nbr, field);
+					else
+						return (0);
+				}
+			x++;
 		}
-	if (y == g_field_size - 1 && x == g_field_size - 1)
-		return (step_back(field, list));
-	return (fill_tetris(field, y, x + 1));
+		y++;
+	}
+	return (1);
 }
 
-int				backtracking(void)
+int		backtracking(void)
 {
 	int		i;
 	int		j;
 	char	field[g_field_size][g_field_size];
 
 	i = 0;
-	g_to_put = -1;
-	del_revers();
 	while (i < g_field_size)
 	{
 		j = 0;
@@ -70,20 +75,20 @@ int				backtracking(void)
 			field[i][j++] = '.';
 		i++;
 	}
-	i = fill_tetris(field, 0, 0);
+	i = fill_tetris(field, 0);
 	if (!i)
 		print_field(field);
 	return (i);
 }
 
-int				find_size(int i)
+int		find_size(int i)
 {
 	while (!ft_sqrt(i))
 		i++;
 	return (ft_sqrt(i));
 }
 
-void			create_data_baze(void)
+void	create_data_baze(void)
 {
 	int i;
 	int lol;
@@ -94,7 +99,6 @@ void			create_data_baze(void)
 	while (i)
 	{
 		i = backtracking();
-		list_to_null();
 		g_field_size++;
 	}
 }
