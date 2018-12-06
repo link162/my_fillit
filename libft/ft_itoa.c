@@ -3,49 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iruban <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/02 14:54:47 by iruban            #+#    #+#             */
-/*   Updated: 2018/11/02 14:54:49 by iruban           ###   ########.fr       */
+/*   Created: 2018/11/01 17:01:08 by ybuhai            #+#    #+#             */
+/*   Updated: 2018/11/06 14:49:38 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		isnegative(int *n, int *negative)
+static int	count_ch(int n)
 {
-	if (*n < 0)
-	{
-		*n *= -1;
-		*negative = 1;
-	}
+	int	j;
+
+	j = 2;
+	if (n < 0)
+		j++;
+	while (n /= 10)
+		j++;
+	return (j);
 }
 
-char			*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int		i;
-	int		len;
-	int		negative;
 	char	*str;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	i = n;
-	len = 2;
-	negative = 0;
-	isnegative(&n, &negative);
-	while (i /= 10)
-		len++;
-	len = len + negative;
-	if (!(str = (char*)malloc(sizeof(char) * len)))
+	i = count_ch(n);
+	str = (char *)malloc(sizeof(char) * i);
+	if (!str)
 		return (NULL);
-	str[--len] = '\0';
-	while (len--)
+	ft_bzero(str, i);
+	i -= 2;
+	if (!str)
+		return (NULL);
+	if (n < 0)
+		str[0] = '-';
+	if (n == 0)
+		str[0] = '0';
+	while (n)
 	{
-		str[len] = n % 10 + '0';
+		if (n > 0)
+			str[i] = (n % 10) + 48;
+		else
+			str[i] = -(n % 10) + 48;
+		i--;
 		n = n / 10;
 	}
-	if (negative)
-		str[0] = '-';
 	return (str);
 }

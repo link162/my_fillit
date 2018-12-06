@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iruban <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/02 15:02:35 by iruban            #+#    #+#             */
-/*   Updated: 2018/11/02 15:02:51 by iruban           ###   ########.fr       */
+/*   Created: 2018/10/30 15:06:22 by ybuhai            #+#    #+#             */
+/*   Updated: 2018/10/30 18:17:19 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int		ft_strequ(char const *s1, char const *s2)
 {
-	if (s1 && s2)
-	{
-		if (!ft_strcmp((char *)s1, (char *)s2))
-			return (1);
+	if (!s1 || !s2)
 		return (0);
-	}
+	if (!ft_strcmp(s1, s2))
+		return (1);
 	return (0);
 }

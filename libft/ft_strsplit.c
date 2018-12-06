@@ -3,68 +3,89 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iruban <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/02 15:28:27 by iruban            #+#    #+#             */
-/*   Updated: 2018/11/05 13:37:57 by iruban           ###   ########.fr       */
+/*   Created: 2018/11/01 13:41:48 by ybuhai            #+#    #+#             */
+/*   Updated: 2018/11/07 17:36:18 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int		words(const char *s, char c)
+static int		ft_count_words(char const *s, char c)
 {
-	int	word;
-	int	i;
+	unsigned int	i;
+	int				count;
 
 	i = 0;
-	word = 0;
-	if (!s)
-		return (0);
-	while (s[i])
+	count = 0;
+	while (*s)
 	{
-		if (s[i] == c && s[i + 1] != c)
-			word++;
+		if (i == 1 && *s == c)
+			i = 0;
+		if (i == 0 && *s != c)
+		{
+			i = 1;
+			count++;
+		}
+		s++;
+	}
+	return (count);
+}
+
+static int		ft_modstrlen(char const *str, char c)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != c && str[i] != '\0')
+		i++;
+	i++;
+	return (i);
+}
+
+static char		*ft_copy(char **des, char const *str, char c)
+{
+	int i;
+
+	*des = (char *)malloc(sizeof(char) * (ft_modstrlen(str, c)));
+	if (!des)
+		return (NULL);
+	i = 0;
+	while (str[i] != c && str[i] != '\0')
+	{
+		(*des)[i] = str[i];
 		i++;
 	}
-	if (s[0] != '\0')
-		word++;
-	return (word);
+	(*des)[i] = '\0';
+	return (*des);
 }
 
-static char		**create_array(const char *s, char c, char **ret)
+char			**ft_strsplit(char const *s, char c)
 {
-	size_t	len;
-	size_t	i;
-	size_t	j;
+	char	**res;
+	int		i;
+	int		j;
 
-	i = 0;
 	j = 0;
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (!(res = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1))))
+		return (NULL);
 	while (s[i])
 	{
-		if (s[i] == c)
+		while (s[i] == c && s[i])
 			i++;
-		else
+		if (s[i])
 		{
-			len = 0;
-			while (s[i + len] && (s[i + len] != c))
-				len++;
-			ret[j++] = ft_strsub(s, i, len);
-			i = i + len;
+			if (!(ft_copy(&res[j], &s[i], c)))
+				return (NULL);
+			j++;
 		}
+		while (s[i] != c && s[i])
+			i++;
 	}
-	ret[j] = 0;
-	return (ret);
-}
-
-char			**ft_strsplit(const char *s, char c)
-{
-	char	**tmp;
-
-	if (!s || !c)
-		return (0);
-	if (!(tmp = (char **)malloc(sizeof(s) * (words(s, c) + 2))))
-		return (NULL);
-	tmp = create_array(s, c, tmp);
-	return (tmp);
+	res[j] = NULL;
+	return (res);
 }

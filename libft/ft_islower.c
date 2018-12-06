@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iruban <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 12:29:46 by iruban            #+#    #+#             */
-/*   Updated: 2018/11/05 12:29:47 by iruban           ###   ########.fr       */
+/*   Created: 2018/11/07 18:06:36 by ybuhai            #+#    #+#             */
+/*   Updated: 2018/11/12 16:30:50 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
-int		ft_pow(int a, int b)
+int		ft_islower(int c)
 {
-	int c;
-
-	c = a;
-	if (a)
-	{
-		if (b < 0)
-			return (0);
-		if (b == 0)
-			return (1);
-		while (--b)
-			a = c * a;
-		return (a);
-	}
-	return (0);
+	return (c <= 'z' && c >= 'a');
 }

@@ -3,28 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iruban <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 13:37:49 by iruban            #+#    #+#             */
-/*   Updated: 2018/10/24 17:03:15 by iruban           ###   ########.fr       */
+/*   Created: 2018/11/07 18:21:52 by ybuhai            #+#    #+#             */
+/*   Updated: 2018/11/07 18:21:58 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_sqrt(int nb)
+int		ft_sqrt(int nb)
 {
-	int counter;
+	int i;
 
-	counter = 1;
-	if (nb <= 0)
-		return (0);
-	while (counter * counter < nb)
-	{
-		counter++;
-	}
-	if ((nb % counter) == 0)
-		return (counter);
-	else
-		return (0);
+	i = 1;
+	while (i * i < nb)
+		i++;
+	if (i * i == nb)
+		return (i);
+	return (0);
 }

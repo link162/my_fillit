@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_multiply.c                                      :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iruban <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 13:20:56 by iruban            #+#    #+#             */
-/*   Updated: 2018/11/05 13:21:39 by iruban           ###   ########.fr       */
+/*   Created: 2018/11/07 18:32:47 by ybuhai            #+#    #+#             */
+/*   Updated: 2018/11/12 16:31:56 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
-int		ft_multiply(int a, int b)
+int		ft_isspace(int c)
 {
-	if (a && b)
-		return (a * b);
-	return (0);
+	return (c == '\t' || c == '\v' || c == '\n' || c == '\r' || c == '\f' \
+			|| c == ' ');
 }
