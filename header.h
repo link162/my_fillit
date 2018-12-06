@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 14:19:07 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/12/03 16:41:26 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/12/04 13:40:44 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		g_count;
 int		g_field_size;
 int		figure_1(char *str);
 void	create_data_baze(void);
+int		kvadrat(int x);
 int		avalible(char field[][g_field_size], int y, int x, int figure);
 int		try_figure_1(char field[][g_field_size], int y, int x, int n);
 int		try_figure_2(char field[][g_field_size], int y, int x, int n);

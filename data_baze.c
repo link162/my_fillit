@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 12:16:48 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/12/03 16:46:00 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/12/05 19:13:25 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ int		backtracking(void)
 
 int		find_size(int i)
 {
-	while (!ft_sqrt(i))
+	while (!kvadrat(i))
 		i++;
-	return (ft_sqrt(i));
+	return (kvadrat(i));
 }
 
 void	create_data_baze(void)

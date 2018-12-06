@@ -6,11 +6,23 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 11:13:35 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/11/29 13:28:15 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/12/04 13:40:17 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+int		kvadrat(int nb)
+{
+	int i;
+
+	i = 1;
+	while (i * i < nb)
+		i++;
+	if (i * i == nb)
+		return (i);
+	return (0);
+}
 
 int		avalible2(char field[][g_field_size], int y, int x, int nbr)
 {

@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 16:38:10 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/12/03 16:59:03 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/12/04 14:43:39 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ void	ft_read_file(int fd)
 	i = read(fd, str, 550);
 	str[i] = '\0';
 	ft_validate(str);
-	close(fd);
 }
 
 int		main(int argc, char **argv)
