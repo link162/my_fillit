@@ -6,11 +6,23 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 11:13:35 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/12/04 13:40:17 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/12/09 15:28:23 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+void	ft_putstr(char const *s)
+{
+	size_t i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(1, &(s[i]), 1);
+		i++;
+	}
+}
 
 int		kvadrat(int nb)
 {
@@ -89,10 +101,10 @@ void	print_field(char field[][g_field_size])
 		j = 0;
 		while (j < g_field_size)
 		{
-			ft_putchar(field[i][j]);
+			write(1, &(field[i][j]), 1);
 			j++;
 		}
-		ft_putchar('\n');
+		ft_putstr("\n");
 		i++;
 	}
 }

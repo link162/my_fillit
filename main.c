@@ -6,7 +6,7 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 16:38:10 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/12/06 20:41:11 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/12/09 15:25:04 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	find_figure(char *str)
 		arr[nb] = figure_1(&str[i]);
 		if (arr[nb] < 1)
 		{
-			ft_putendl("error");
+			ft_putstr("error\n");
 			return ;
 		}
 		i += 21;
@@ -78,7 +78,7 @@ void	ft_validate(char *str)
 		j = validate_box(&str[i], 0);
 		if (j == -1)
 		{
-			ft_putendl("error");
+			ft_putstr("error\n");
 			return ;
 		}
 		i += j;
@@ -110,10 +110,10 @@ int		main(int argc, char **argv)
 	{
 		fd = open(argv[1], O_RDONLY);
 		if (fd < 0)
-			ft_putendl("error");
+			ft_putstr("error\n");
 		else
 			ft_read_file(fd);
 	}
 	else
-		ft_putendl("usage: ./fillit file_name");
+		ft_putstr("usage: ./fillit file_name\n");
 }

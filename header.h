@@ -6,13 +6,13 @@
 /*   By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 14:19:07 by ybuhai            #+#    #+#             */
-/*   Updated: 2018/12/04 13:40:44 by ybuhai           ###   ########.fr       */
+/*   Updated: 2018/12/09 15:27:50 by ybuhai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
-# include "libft/includes/libft.h"
+# include <unistd.h>
 # include <fcntl.h>
 
 int		*g_arr;
@@ -21,6 +21,7 @@ int		g_field_size;
 int		figure_1(char *str);
 void	create_data_baze(void);
 int		kvadrat(int x);
+void	ft_putstr(char const *str);
 int		avalible(char field[][g_field_size], int y, int x, int figure);
 int		try_figure_1(char field[][g_field_size], int y, int x, int n);
 int		try_figure_2(char field[][g_field_size], int y, int x, int n);

@@ -3,30 +3,29 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ybuhai <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: glarivie <glarivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/11/17 15:05:10 by ybuhai            #+#    #+#              #
-#    Updated: 2018/12/09 14:52:59 by ybuhai           ###   ########.fr        #
+#    Created: 2015/09/16 14:27:46 by glarivie          #+#    #+#              #
+#    Updated: 2018/11/16 17:40:03 by ybuhai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fillit
-FLAGS = -Wall -Wextra -Werror
-FILES = main.c find_figures.c data_baze.c backtrack.c find_free_place1.c find_free_place6.c find_free_place11.c find_free_place16.c
-OBJECT = $(FILES:.c=.o)
+NAME 	= tetri-gen
+SRCS 	= srcs/main.c	srcs/ft_blk_rot.c	srcs/ft_rand.c	srcs/ft_atoi.c	\
+		  srcs/ft_isdigit.c		srcs/ft_isspace.c	\
 
-$(NAME) : $(OBJECT)
-	@gcc $(FLAGS) -c $(FILES)
-	@gcc -o $(NAME) $(OBJECT)
+INC		= ./includes
+FLAGS	= -Wall -Wextra -Werror
+CC		= gcc
 
 all: $(NAME)
 
+$(NAME):
+	@echo ""
+	@$(CC) $(FLAGS) -o $(NAME) $(SRCS) -I$(INC)
+	@echo "Création de $(NAME)"
+
 clean:
-	@rm -rf $(OBJECT)
+	rm -f $(NAME)
 
-fclean: clean
-	@rm -rf $(NAME)
-
-re : fclean all
-
-.PHONY: all clean fclean clean re
+re: clean all
